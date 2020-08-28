@@ -22,7 +22,7 @@ if (is_sticky()) {
                     <div class="writy_banner_inner">
                    <?php
                     if(has_post_thumbnail()){
-                        the_post_thumbnail('full', ['class' => 'banner-image']);
+                        the_post_thumbnail('writy_banner_image', ['class' => 'banner-image']);
                     }
                    
                    ?>

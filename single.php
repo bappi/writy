@@ -9,7 +9,7 @@ if(is_active_sidebar('sidebar-1')){
 }
 
 ?>
-<div class="single_blog_post_area writy_section_padding_top writy_section_padding_bottom">
+<div class="single_blog_post_area writy_section_padding_top writy_section_padding_bottom" id="site-content">
     <div class="container">
         <div class="row">
             <div class="<?php echo esc_attr($writy_content_class);?>">

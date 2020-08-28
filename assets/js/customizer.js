@@ -10,11 +10,10 @@
     //Update site background color...
     wp.customize("background_color", function (value) {
       value.bind(function (newval) {
-        // console.log("background_color newval", newval);
         $("[type='search'],input,.menu .children,.sub-menu").css({
           backgroundColor: newval,
         });
-        $(".entry-header .entry-title,.entry-header .entry-title a").css({
+        $("a").css({
           color: newval,
         });
       });
@@ -23,8 +22,6 @@
     //Update site link color in real time...
     wp.customize("link_textcolor", function (value) {
       value.bind(function (newval) {
-        // console.log("link_textcolor actual", newval);
-  
         $("a").css({
           color: newval,
         });
@@ -36,7 +33,7 @@
   
     wp.customize("focus_textcolor", function (value) {
       value.bind(function (newval) {
-        // console.log("focus color", newval);
+      
         $("a:focus").css({
           color: newval,
         });
@@ -53,7 +50,7 @@
     wp.customize("theme_options_text", function (value) {
       value.bind(function (newval) {
         $(".footer_text").html(newval);
-        console.log("value is", newval);
+       
       });
     });
   
@@ -61,7 +58,7 @@
   
     wp.customize("header_textcolor", function (value) {
       value.bind(function (newval) {
-        console.log("setting heder text color", newval);
+       
         $(".site-description").css({
           color: newval,
         });
@@ -70,7 +67,7 @@
     //
     wp.customize("show_header_center", function (value) {
       value.bind(function (newval) {
-        console.log("setting heder text color", newval);
+       
         if (newval) {
           $(".site-branding,.main-navigation").css({
             "justify-content": "center",

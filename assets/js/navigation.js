@@ -9,7 +9,7 @@
     //   $(".menu-item").prefend(prefenditem);
     // }
     $("body").on(".submenu-controller", "click", function () {
-      console.log("trst");
+      
     });
 
   MenuItem.on("click", function (e) {
@@ -22,7 +22,7 @@
   });
   $(".navbar-toggler").on("click", function () {
     $(".sub-menu").slideUp();
-      console.log('clicked on toogler');
+      
     //$(this).siblings(".navbar-collapse").find(".sub-menu").slideUp();
     $('body').toggleClass('showing-menu');
     if($('body').hasClass('showing-menu')){
@@ -96,6 +96,5 @@
   keepFocusInModal();
 
 
-    
     
 } )( jQuery );

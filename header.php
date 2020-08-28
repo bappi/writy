@@ -4,8 +4,7 @@
 <head>
     <meta charset="<?php bloginfo('charset'); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <!-- Google fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Alegreya:400,500,700&display=swap" rel="stylesheet" />
+
     <?php wp_head(); ?>
 </head>
 
@@ -21,9 +20,9 @@
             $custom_logo_id = get_theme_mod( 'custom_logo' );
             $logo = wp_get_attachment_image_src( $custom_logo_id , 'full' );
             if (has_custom_logo()) {
-                echo '<a class="navbar-brand" href=' . home_url('/') . '><img src="' . esc_url($logo[0]) . '" alt="' . get_bloginfo('name') . '"></a>';
+                echo '<a class="navbar-brand" href=' . esc_url(home_url('/')) . '><img src="' . esc_url($logo[0]) . '" alt="' . esc_attr(get_bloginfo('name')) . '"></a>';
             } else {
-                echo '<a href=' . home_url('/') . ' class="navbar-brand"><h1>' . get_bloginfo('name') . '</h1></a>';
+                echo '<a href=' . esc_url(home_url('/') ). ' class="navbar-brand"><h1>' . esc_html(get_bloginfo('name')) . '</h1></a>';
             }
 
             ?>
@@ -41,6 +40,8 @@
                     wp_nav_menu(array(
                         'theme_location' => 'top_menu',
                         'menu_id' => 'top_menu',
+                        'container'            => 'nav',
+                        'container_class' => 'advance_navs',
                         'menu_class' => 'navbar-nav ml-auto'
                     ))
                     ?>

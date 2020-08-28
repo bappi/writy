@@ -146,3 +146,25 @@ if ( ! function_exists( 'writy_post_thumbnail' ) ) :
 		endif; // End is_singular().
 	}
 endif;
+if ( ! function_exists( 'writy_the_posts_pagination' ) ) :
+	/**
+	 * Documentation for function.
+	 */
+	function writy_the_posts_pagination() {
+		the_posts_pagination(
+			array(
+				'mid_size'  => 2,
+				'prev_text' => sprintf(
+					'%s <span class="nav-prev-text">%s</span>',
+					'«',
+					__( 'Previous', 'writy' )
+				),
+				'next_text' => sprintf(
+					'<span class="nav-next-text">%s</span> %s',
+					__( 'Next', 'writy' ),
+					'»'
+				),
+			)
+		);
+	}
+endif;

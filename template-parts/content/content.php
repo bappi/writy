@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-12">
             <div class="writy_about_image">
-                <?php the_post_thumbnail(); ?>
+                <?php the_post_thumbnail('writy_blog_page_image'); ?>
             </div>
             <div class="row">
                 <div class="col-sm-10 offset-sm-1">

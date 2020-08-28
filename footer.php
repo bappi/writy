@@ -3,10 +3,15 @@
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <h3>Minimal blog Design</h3>
+                <h3>
+                <?php if( get_theme_mod( 'footer_text_block') != "" ): 
+                echo esc_html(get_theme_mod( 'footer_text_block'));
+               endif;
+                ?>
+                </h3>
 
                 <?php
-if ( has_nav_menu( 'footer_menu' ) ) {
+                if ( has_nav_menu( 'footer_menu' ) ) {
                 wp_nav_menu(array(
                     'theme_location' => 'footer_menu',
                     'menu_id' => 'footer_menu',

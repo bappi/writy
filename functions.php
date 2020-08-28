@@ -4,13 +4,14 @@
 if (!function_exists('writy_setup_theme')) :
     function writy_setup_theme()
     {
+        load_theme_textdomain('writy', get_template_directory() . '/languages');
         // Add default posts and comments RSS feed links to head.
         add_theme_support('automatic-feed-links');
         // Custom background color.
         add_theme_support('custom-background', apply_filters('writy_custom_background_args', array(
-			'default-color' => 'ffffff',
-			'default-image' => '',
-		)));
+            'default-color' => 'ffffff',
+            'default-image' => '',
+        )));
 
         /*
 		 * Let WordPress manage the document title.
@@ -26,8 +27,8 @@ if (!function_exists('writy_setup_theme')) :
 		 */
         add_theme_support('post-thumbnails');
         // Gutenberg Support
-        add_theme_support( 'wp-block-styles' );
-        add_theme_support( 'align-wide' );
+        add_theme_support('wp-block-styles');
+        add_theme_support('align-wide');
         // This theme uses wp_nav_menu() in one location.
         register_nav_menus(array(
             'top_menu' => esc_html__('Header Menu', 'writy'),
@@ -48,7 +49,8 @@ if (!function_exists('writy_setup_theme')) :
         ));
         // Add theme support for selective refresh for widgets.
         add_theme_support('customize-selective-refresh-widgets');
-        add_image_size('banner-image', 1110, 442, true);
+        add_image_size('writy_banner_image', 1110, 442, true);
+        add_image_size('writy_blog_page_image', 795, 419, true);
         /**
          * Add support for core custom logo.
          *
@@ -67,7 +69,7 @@ if (!function_exists('writy_setup_theme')) :
             'flex-width'         => true,
             'flex-height'        => true,
         );
-        add_theme_support('custom-header', $args);
+        //add_theme_support('custom-header', $args);
         // Add support for full and wide align images.
         add_theme_support('align-wide');
     }
@@ -86,13 +88,14 @@ function writy_classic_editor_style()
 
 add_action('admin_init', 'writy_classic_editor_style');
 
-function writy_content_width() {
-	// This variable is intended to be overruled from themes.
-	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
-	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-	$GLOBALS['content_width'] = apply_filters( 'writy_content_width', 640 );
+function writy_content_width()
+{
+    // This variable is intended to be overruled from themes.
+    // Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
+    // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
+    $GLOBALS['content_width'] = apply_filters('writy_content_width', 640);
 }
-add_action( 'after_setup_theme', 'writy_content_width', 0 );
+add_action('after_setup_theme', 'writy_content_width', 0);
 
 function writy_widget_init()
 {
@@ -112,14 +115,11 @@ add_action('widgets_init', 'writy_widget_init');
  */
 function writy_script()
 {
-    wp_enqueue_style('theme-roots', get_theme_file_uri('/assets/css/themeroots.min.css'), null, '1.0');
+    wp_enqueue_style( 'writy-google-fonts', 'https://fonts.googleapis.com/css?family=Alegreya:400,500,700&display=swap', false );
+    wp_enqueue_style('writy-theme-roots', get_theme_file_uri('/assets/css/themeroots.min.css'), null, '1.0');
     wp_enqueue_style('writy-style', get_stylesheet_uri());
-    // wp_enqueue_style('writy-style', get_theme_file_uri(), null, '1.0');
-    wp_style_add_data('writy-rtl-style', 'rtl', 'replace');
-
 
     wp_enqueue_script('writy-navigation', get_template_directory_uri() . '/assets/js/navigation.js', array('jquery'), '1.00', true);
-    // wp_enqueue_script('writy-skip-link-focus-fix', get_template_directory_uri() . '/assets/js/skip-link-focus-fix.js', array('jquery'), '1.00', true);
 
     wp_enqueue_script('writy-main-js', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), '1.00', true);
 
@@ -144,22 +144,6 @@ function writy_midsize($size)
 }
 add_filter('writy_midsize', 'writy_midsize');
 
-function writy_pagination()
-{
-    global $wp_query;
-
-    $links = paginate_links(array(
-        'current' => max(1, get_query_var('paged')),
-        'type' => 'list',
-        'total' => $wp_query->max_num_pages,
-        'mid_size' => apply_filters('writy_midsize', 3)
-    ));
-    $links = str_replace('page-numbers', 'writty_pgn', $links);
-    $links = str_replace("<ul class='writty_pgn'>", '<ul>', $links);
-    $links = str_replace("next writty_pgn", 'pgn__next', $links);
-    $links = str_replace("prev writty_pgn", 'pgn__prev', $links);
-    echo wp_kses_post($links);
-}
 
 function writy_add_class_on_li($items)
 {
@@ -186,7 +170,7 @@ add_filter('wp_nav_menu_objects', 'writy_add_class_on_li');
 add_action('wp_enqueue_scripts', 'writy_load_dashicon');
 function writy_load_dashicon()
 {
-	wp_enqueue_style('dashicons');
+    wp_enqueue_style('dashicons');
 }
 
 function writy_searchform($form)
@@ -225,9 +209,8 @@ require get_template_directory() . '/inc/template-functions.php';
  * Load Jetpack compatibility file.
  */
 if (defined('JETPACK__VERSION')) {
-	require get_template_directory() . '/inc/jetpack.php';
+    require get_template_directory() . '/inc/jetpack.php';
 }
 
 // Handle Customizer settings.
 require get_template_directory() . '/classes/class-writy-customizer.php';
-

@@ -20,7 +20,7 @@ get_header();
             <span class="page-description"><?php echo get_search_query(); ?></span>
         </h1>
     </header><!-- .page-header -->
-    <div class="blog_area writy_section_padding_bottom writy_section_padding_top">
+    <div class="blog_area writy_section_padding_bottom writy_section_padding_top" id="site-content">
         <div class="container">
 
             <div class="row">
@@ -49,7 +49,7 @@ get_header();
                         <div class="row">
                             <div class="col">
                                 <div class="writy_pagination_contaier">
-                                    <?php writy_pagination(); ?>
+                                    <?php writy_the_posts_pagination(); ?>
                                 </div>
                             </div>
                         </div>

@@ -4,7 +4,7 @@
  * Contains methods for customizing the theme customization screen.
  * 
  * @link http://codex.wordpress.org/Theme_Customization_API
- * @since MyTheme 1.0
+
  */
 class writy_customize
 {
@@ -18,7 +18,7 @@ class writy_customize
      * @see add_action('customize_register',$func)
      * @param \WP_Customize_Manager $wp_customize
      * @link http://ottopress.com/2012/how-to-leverage-the-theme-customizer-in-your-own-themes/
-     * @since MyTheme 1.0
+ 
      */
     public static function register($wp_customize)
     {
@@ -59,7 +59,7 @@ class writy_customize
         // Add setting
         $wp_customize->add_setting('footer_text_block', array(
             'default'           => __('default text', 'writy'),
-            'sanitize_callback' => 'sanitize_text'
+            'sanitize_callback' => 'writy_sanitize_text'
         ));
         // Add control
         $wp_customize->add_control(new WP_Customize_Control(
@@ -75,7 +75,7 @@ class writy_customize
 
 
         // Sanitize text
-        function sanitize_text($text)
+        function writy_sanitize_text($text)
         {
             return sanitize_text_field($text);
         }
@@ -92,7 +92,7 @@ class writy_customize
      * Used by hook: 'wp_head'
      * 
      * @see add_action('wp_head',$func)
-     * @since MyTheme 1.0
+     * @since writy 1.0
      */
     public static function header_output()
     {
@@ -115,12 +115,12 @@ class writy_customize
      * Used by hook: 'customize_preview_init'
      * 
      * @see add_action('customize_preview_init',$func)
-     * @since MyTheme 1.0
+     * @since writy 1.0
      */
     public static function live_preview()
     {
         wp_enqueue_script(
-            'mytheme-themecustomizer', // Give the script a unique ID
+            'writy-themecustomizer', // Give the script a unique ID
             get_template_directory_uri() . '/assets/js/customizer.js', // Define the path to the JS file
             array('jquery', 'customize-preview'), // Define dependencies
             '', // Define a version (optional) 
@@ -140,7 +140,7 @@ class writy_customize
      * @param string $postfix Optional. Anything that needs to be output after the CSS property
      * @param bool $echo Optional. Whether to print directly to the page (default: true).
      * @return string Returns a single line of CSS with selectors and a property.
-     * @since MyTheme 1.0
+  
      */
     public static function generate_css($selector, $style, $mod_name, $prefix = '', $postfix = '', $echo = true)
     {
