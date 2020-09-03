@@ -2,7 +2,7 @@
 Contributors: nativethemes
 Tested up to: 5.5
 Requires at least: 4.5
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
@@ -13,7 +13,7 @@ Writy is free theme for wordpress user. Its a theme who want to think different 
 
 == Changelog ==
 = 1.0 =
-* Released: Auguest 10, 2020
+* Released: September 4, 2020
 
 Initial release
 

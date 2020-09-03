@@ -178,18 +178,13 @@ function writy_searchform($form)
     $home_url = home_url('/');
     $label = __('Search for:', 'writy');
     $button_name = __('Search', 'writy');
-    $pt = <<<PT
-    <input type='hidden' name="post_type" value="post">
-    PT;
-    $newform = <<<EOT
-    <form role="search" method="get" class="writy_search" action="{$home_url}">
+    $newform = '<form role="search" method="get" class="writy_search" action="'. esc_attr($home_url).'">
         <label>
-            <input type="{$button_name}" class="search-field" placeholder="Type Keywords" value="" name="s" title="{$label}" autocomplete="off">
+            <input type="'. esc_attr($button_name).'" class="search-field" placeholder="'.__('Type Keywords','writy').'" value="" name="s" title="' . esc_attr($label).'" autocomplete="off">
         </label>
-        {$pt}
-        <input type="submit" class="search-submit" value="{$button_name}">
-    </form>
-    EOT;
+        <input type="hidden" name="post_type" value="post">
+        <input type="submit" class="search-submit" value="' . esc_attr($button_name).'">
+    </form>';
 
     return $newform;
 }

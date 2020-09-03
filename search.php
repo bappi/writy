@@ -5,7 +5,6 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package WordPress
  * @subpackage writy
  * @since writy 1.0
  */

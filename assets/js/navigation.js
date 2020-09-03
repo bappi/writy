@@ -63,6 +63,7 @@
         tabKey,
         shiftKey,
         menuToggleEl = $(".navbar-toggler");
+        let toggleselector = _doc.querySelector(".navbar-toggler");
       clickedEl = menuToggleEl.data("clicked", true);
 
       if (clickedEl && _doc.body.classList.contains("showing-menu")) {
@@ -78,6 +79,7 @@
         activeEl = _doc.activeElement;
         tabKey = event.keyCode === 9;
         shiftKey = event.shiftKey;
+        
 
         if (!shiftKey && tabKey && lastEl === activeEl) {
           event.preventDefault();
@@ -89,6 +91,10 @@
           event.preventDefault();
           lastEl.focus();
           menuToggleEl.focus();
+        }
+        if(shiftKey && tabKey && toggleselector === activeEl){
+          event.preventDefault();
+             lastEl.focus();
         }
       }
     });

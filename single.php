@@ -38,10 +38,10 @@ if(is_active_sidebar('sidebar-1')){
                                 // Previous/next post navigation.
                                 the_post_navigation(
                                     array(
-                                        'next_text' => '<span class="meta-nav" aria-hidden="true">' . __('', 'writy') . '</span> ' .
-                                            '<span class="screen-reader-text">' . __('Next post:', 'writy') . '</span> <br/>' .
-                                            '<span class="post-title">%title</span>',
-                                        'prev_text' => '<span class="meta-nav" aria-hidden="true">' . __('', 'writy') . '</span> ' .
+                                        'next_text' =>'<span class="screen-reader-text">' . __('Next post:', 'writy') . '</span> <br/>' .
+                                            '<span class="post-title">%title</span>' .
+                                            '<span class="meta-nav" aria-hidden="true">' . ' »' . '</span> ',
+                                        'prev_text' => '<span class="meta-nav" aria-hidden="true">' . '« ' . '</span> ' .
                                             '<span class="screen-reader-text">' . __('Previous post:', 'writy') . '</span> <br/>' .
                                             '<span class="post-title">%title</span>',
                                     )
