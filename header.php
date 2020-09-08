@@ -30,7 +30,7 @@
             <?php
             if (has_nav_menu('top_menu')) : ?>
 
-                <button class="navbar-toggler" id="mobileButton" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="<?php _e('Toggle navigation','writy');?>">
+                <button class="navbar-toggler" id="mobileButton" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="<?php esc_attr_e('Toggle navigation','writy');?>">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
