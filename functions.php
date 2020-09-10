@@ -180,7 +180,7 @@ function writy_searchform($form)
     $button_name = __('Search', 'writy');
     $newform = '<form role="search" method="get" class="writy_search" action="'. esc_attr($home_url).'">
         <label>
-            <input type="'. esc_attr($button_name).'" class="search-field" placeholder="'.__('Type Keywords','writy').'" value="" name="s" title="' . esc_attr__($label).'" autocomplete="off">
+            <input type="'. esc_attr($button_name).'" class="search-field" placeholder="'.__('Type Keywords','writy').'" value="" name="s"  autocomplete="off">
         </label>
         <input type="hidden" name="post_type" value="post">
         <input type="submit" class="search-submit" value="' . esc_attr($button_name).'">
